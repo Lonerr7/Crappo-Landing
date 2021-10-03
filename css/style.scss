@@ -1,0 +1,1637 @@
+
+
+// === import ===
+
+@import 'null';
+
+// === /import ===
+
+
+// === fonts ===
+
+
+
+// === /fonts ===
+
+
+// === variables ===
+
+$fontFamily: 'Rubik', sans-serif;
+$wrapper: 1202px;
+$background: #0D0D2B;
+$btnColor: #3671E9;
+$cardHover: #2B076E;
+$white: #fff;
+$purple: #2B076E;
+
+
+// === /variables ===
+
+
+// === templates ===
+
+
+
+// === /templates ===
+
+
+// === mixins ===
+
+
+
+// === /mixins ===
+
+
+// === common ===
+
+body{
+    background-color: $background;
+    font-family: $fontFamily;
+    color: $white;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li{
+    margin: 0;
+    padding: 0;
+}
+
+a{
+    color: $white;
+}
+
+.wrapper{
+    max-width: $wrapper;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+.section-hidden{
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.section{
+    transition: transform 1s, opacity 1s;
+}
+
+// === /common ===
+
+
+// === header ===
+
+.header{
+    padding-top: 66px;
+    font-size: 16px;
+    
+    
+    &__wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        text-align: center;
+        position: relative;
+    }
+
+    .navigation{
+        display: flex;
+        align-items: center;
+        height: 52px;
+        max-width: 615px;
+        // position: fixed;
+        // top: 0;
+        transition: all 0.3s;
+        // left: 0;
+
+        &__item{
+            margin-left: 32px;
+            transition: all 0.3s;
+        }
+
+        &__item01{
+            margin-left: 0;
+        }
+
+        &__item-login{
+            margin-left: 56px;
+            border-right: 1px solid rgba(242,242,242,0.3);
+            padding-right: 24px;
+
+            .navigation__link-login{
+                font-weight: 500;
+            }
+        }
+
+        &__link{
+            transition: all 0.3s;
+        }
+        
+        &__link:hover{
+            text-decoration: underline;
+            transition: all 0.3s;
+        }
+
+        &__item-register{
+            margin-right: 24px;
+
+            .navigation__link-register{
+                display: inline-block;
+                font-weight: 500;
+                padding: 14px 32px;
+                background-color: $btnColor;
+                border-radius: 32px;
+                transition: .2s ease background-color;
+                transition: all 0.3s;
+
+                &:hover{
+                    background-color: $purple;
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    
+
+    .logo{
+        display: flex;
+        align-items: center;
+        text-transform: uppercase;
+        transition: all 0.3s;
+
+        &__img{
+            margin-right: 17px;
+            transition: all 0.3s;
+        }
+    }
+}
+
+.header__burger{
+    width: 40px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    position: absolute;
+    top: 2px;
+    right: 15px;
+    z-index: 3;
+     
+    
+    &:hover{
+        cursor: pointer;
+    }
+    
+    span{
+        background-color: #fff;
+        position: absolute;
+        width: 26px;
+        height: 2px;
+        top: 50%;
+        margin-top: -1px;
+        right: 50%;
+        margin-right: -13px;
+
+        &::before, &::after{
+            content: "";
+            background-color: #fff;
+            position: absolute;
+            width: 26px;
+            height: 2px;
+            top: 50%;
+            margin-top: -1px;
+            right: 50%;
+            margin-right: -13px;
+            transition: 0.5s;
+        }
+
+        &::before{
+            transform: translateY(-6px);
+        }
+
+        &::after{
+            transform: translateY(6px);
+        }
+    }
+}
+
+.header__burger-icon_active span::before{
+    transform: rotate(45deg);
+}
+
+.header__burger-icon_active span{
+    height: 0;
+}
+
+.header__burger-icon_active span::after{
+    transform: rotate(-45deg);
+}
+
+// === /header ===
+
+
+// === section-hero ===
+
+.section-hero{
+    padding-top: 51px;
+    padding-bottom: 102px;
+
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    // &__info{
+
+    // }
+
+    &__save-block{
+        display: flex;
+        align-items: center;
+        // justify-content: space-between;
+        margin-bottom: 24px;
+        background: rgba(255, 255, 255, 0.1);
+        width: 365px;
+        padding: 4px 0px 4px 4px;
+        border-radius: 32px;
+
+        .section-hero__save{
+            padding: 4px 16px;
+            background-color: $white;
+            color: $background;
+            font-size: 16px;
+            font-weight: 500;
+            border-radius: 32px;
+            margin-right: 16px;
+        }
+
+        .section-hero__save-text{
+            font-size: 16px;
+            margin: 8px 11px 4px 0px;
+        }
+    }
+
+    &__title{
+        font-size: 64px;
+        font-weight: 700;
+        line-height: 75px;
+        margin-bottom: 24px;
+    }
+
+    &__subtitle{
+        max-width: 430px;
+        font-size: 16px;
+        margin-bottom: 32px;
+    }
+
+    &__btn{
+        font-size: 18px;
+        font-weight: 500;
+        line-height: 27px;
+        padding: 16px 24px;
+        border-radius: 32px;
+        background-color: $btnColor;
+        transition: .2s ease background-color;
+        display: inline-block;
+
+        &:hover{
+            background-color: $purple;
+
+        }
+    }
+}
+
+// === /section-hero ===
+
+
+// === section-why ===
+
+.section-why{
+    padding-top: 100px;
+    padding-bottom: 116px;
+
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__item{
+        max-width: 334px;
+        display: flex;
+
+    }
+
+    &__img-block{
+        margin-right: 24px;
+    }
+
+    &__item-title{
+        font-size: 40px;
+        line-height: 60px;
+        font-weight: 700;
+        margin-bottom: 7px;
+    }
+
+    &__item-subtitle{
+        font-size: 16px;
+        color: #E0E0E0;
+    
+    }
+}
+
+// === /section-why ===
+
+
+// === section-trade ===
+
+.section-trade{
+    padding-top: 55px;
+    padding-bottom: 0;
+
+    &__text-block{
+        margin: 0 auto;
+        max-width: 625px;
+        text-align: center;
+        margin-bottom: 64px;
+
+        .section-trade__title{
+            font-size: 40px;
+            line-height: 60px;
+            font-weight: 700;
+            margin-bottom: 24px;
+        }
+
+        .section-trade__subtitle{
+            font-size: 18px;
+            line-height: 27px;
+            color: #E0E0E0;
+        }
+    }
+
+    &__calc-top{
+        padding: 48px;
+        background-color: $white;
+        max-width: 942px;
+        margin: 0 auto;
+        border-top-left-radius: 16px;
+        border-top-right-radius: 16px;
+        font-size: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        ::placeholder{
+            color: $background;
+        }
+
+        .calc-top__input{
+            border-bottom: 1px solid #E0E0E0;
+            flex: 0 0 403px;
+            padding-bottom: 8px;
+        }
+
+        .calc-top__select{
+            border-bottom: 1px solid #E0E0E0;
+            flex: 0 0 200px;
+            margin-right: 48px;
+            margin-left: 48px;  
+            padding-bottom: 8px;
+        }
+
+        .calc-top__btn{
+            font-size: 18px;
+            border: none;
+            font-size: 18px;
+            font-weight: 500;
+            line-height: 27px;
+            padding: 16px 32px;
+            border-radius: 32px;
+            background-color: $btnColor;
+            transition: .2s ease background-color;
+            color: $white;
+
+            &:hover{
+                background-color: $purple;
+            }
+        }
+        
+    }
+
+    .section-trade__calc-bottom{
+        padding: 48px 0 48px 48px;
+        background-color: $white;
+        max-width: 942px;
+        margin: 0 auto;
+        border-radius: 0px 0px 16px 16px;
+        font-size: 20px;
+        color: $background;
+        margin-bottom: 100px;
+        filter: drop-shadow(0px 20px 200px rgba(57, 23, 119, 0.05));
+
+        &__esimated{
+            color: $btnColor;
+            font-size: 16px;
+            font-weight: 500;
+            margin-bottom: 16px;
+        }
+
+        &__esimated-output{
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 12px;
+
+            .blueSpan{
+                color: $btnColor;
+            }
+        }
+
+        &__comment{
+            color: #828282;
+            font-size: 16px;
+        }
+    }
+
+    .section-trade__bottom{
+        background: linear-gradient(180deg, #F8F9FB 0%, #FAFBFF 100%);
+        color: $background;
+        padding-bottom: 100px;
+        
+
+        &__title{
+            font-size: 40px;
+            font-weight: 700;
+            text-align: center;
+            max-width: 741px;
+            margin: 0 auto;
+            margin-bottom: 64px;
+        }
+
+        &__row{
+            display: flex;
+            justify-content: space-between;
+            text-align: center;
+        }
+
+        &-item{
+            flex: 0 0 370px;
+            // margin-right: 45px;
+            padding-top: 48px;
+            background-color: $white;
+            padding-bottom: 66px;
+            transition: .2 ease background-color, .2 ease color;
+            border-radius: 16px;
+            color: $background;
+            // margin-bottom: 45px;
+            margin-right: 15px;
+            border: 1px solid rgba(13, 13, 43, 0.5);
+
+            &:last-child{
+                margin-right: 0;
+            }
+
+            &__img{
+                margin-bottom: 48px;
+            }
+
+            &__title{
+                color: $background;
+                font-size: 32px;
+                font-weight: 700;
+                margin-bottom: 16px;
+                margin-bottom: 16px;
+
+                .greySpan{
+                    color: #BDBDBD;
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+            }
+
+            &__subtitle{
+                color: #828282;
+                font-size: 16px;
+                line-height: 28px;
+                max-width: 322px;
+                text-align: center;
+                margin: 0 auto;
+                margin-bottom: 25px;
+            }
+
+            &__btn{
+                color: $background;
+                background-color: $btnColor;
+                color: $white;
+                border-radius: 32px;
+                padding: 15px 15px;
+                display: inline-flex;
+                align-items: center;
+
+                .item__btn-text{
+                    font-size: 18px;
+                    font-weight: 500;
+                    margin-right: 24px;
+                }
+
+                .item__btn-icon{
+                    background-color: $white;
+                    width: 32px;
+                    height: 32px;
+                    display: block;
+                    border-radius: 100%;
+                    background-image: url(../img/arrow-small.svg);
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    border: 2px solid rgba(43, 7, 110, 0.2);
+                    // transform: scale(1);
+                    // transition: .2 ease border, .2 ease transform;
+                }
+
+                // &:hover{
+                    
+                //     .item__btn-icon{
+                //         border: none;
+                //         transform: scale(0.5);
+                //     }
+                // }
+            }
+
+            &:hover{
+                transition: all 0.3s;
+                background-color: $cardHover;
+                
+                .section-trade__bottom-item__title, .section-trade__bottom-item__subtitle{
+                    color: $white;
+                }
+            }
+        }
+    }
+
+}
+
+// === /section-trade ===
+
+
+// === section-form ===
+
+.section-form{
+    padding-top: 88px;
+    padding-bottom: 88px;
+    color: $white;
+    background: linear-gradient(180deg, #2B076E 0%, #0D0D2B 100%);
+
+    &__form{
+        padding: 48px;
+        background-color: $btnColor;
+        border-radius: 16px;
+        display: flex;
+        // justify-content: space-between;
+        align-items: center;
+    }
+
+    &__form-text{
+        width: 507px;
+        margin-right: 31px;
+    }
+
+    .section-from__form-text__title{
+        font-size: 32px;
+        font-weight: 700;
+        margin-bottom: 16px;
+    }
+
+    .section-form__form-text__subtitle{
+        max-width: 322px;
+        line-height: 28px;
+        font-size: 16px;
+    }
+
+    &__form-data{
+        max-width: 566px; 
+        display: flex;
+
+        .data-input{
+            background-color: transparent;
+            font-size: 16px;
+            color: #fff;
+            border-bottom: 1px solid grey;
+            padding-bottom: 7px;
+            flex: 0 0 374px;
+            margin-right: 40px;
+        }
+
+        &__btn{
+            padding: 14px 32px;
+            border-radius: 32px;
+            border: none;
+            color:  rgba(13, 13, 43, 1);
+            font-weight: 500;
+            font-size: 18px;
+            transition: .2 ease background-color, .2 ease color;
+            transition: all 0.3s;
+
+            &:hover{
+                color: $white;
+                background-color: rgba(13, 13, 43, 1);
+            }
+        }
+    }
+
+    ::placeholder{
+        color: $white;
+    }
+
+    input:focus::placeholder {
+        color: transparent;
+    }
+}
+
+// === /section-form ===
+
+
+// === footer ===
+
+.footer{
+    padding-top: 78px;
+    padding-bottom: 74px;
+    border-top: 1px solid #000;
+
+    &__row{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    &__text{
+        font-size: 16px;
+        font-weight: 400;
+    }
+
+    &__link{
+        margin-left: 32px;
+
+        &:first-child{
+            margin-left: 0;
+        }
+    }
+
+    .fab{
+        font-size: 18px;
+    }
+}
+
+// === /footer ===
+
+
+// === media ===
+
+@media (max-width: 10000px) {
+
+    .header__burger{
+        display: none;
+    }
+}
+
+@media (max-width: 1399.98px){
+    //* Все секциии отображаются корректно.
+}
+
+@media (max-width: 1199.98px){
+
+    // === header ===
+
+    .header{
+        padding-top: 33px;
+    }
+
+    // === /header ===
+
+    // === section-hero ===
+
+    .section-hero{
+        padding-top: 46px;
+        padding-bottom: 51px;
+
+        &__save-block{
+            margin-bottom: 16px;
+        }
+
+        &__title{
+            font-size: 55px;
+            line-height: 67px;
+        }
+
+        &__img{
+            width: 504px;
+            height: 504px;
+        }
+    }
+
+    @media (max-width: 1000px ){
+        .section-hero__title{
+            font-size: 50px;
+        }
+    }
+
+    // === /section-hero ===
+
+    @media (max-width: 1168px) {
+        .section-trade .section-trade__bottom{
+            padding-bottom: 50px;
+        }
+
+        .section-trade .section-trade__bottom-item {
+            margin-bottom: 30px;
+        } 
+    }
+
+
+    // === section-why ===
+
+    .section-why{
+        padding-top: 50px;
+        padding-bottom: 58px
+    }
+
+    // === /section-why ===
+
+
+    // === section-trade ===
+
+    .section-trade{
+        padding-top: 50px;
+
+        .section-trade__bottom__row{
+            flex-wrap: wrap;
+            flex-shrink: 1;
+            justify-content: space-evenly;
+        }
+
+        // .section-trade__bottom-item03{
+        //     // align-self: center;
+        //     // justify-self: center;
+        // }
+    }
+
+    .section-trade .section-trade__calc-bottom{
+        margin-bottom: 64px;
+    }
+   
+}
+
+// .section-trade .section-trade__bottom{
+//     padding-bottom: 0;
+// }
+
+// === /section-trade ===
+
+
+//  === section-form ===
+
+.section-form{
+    @media (max-width: 1207px) {
+        .section-form__form{
+            flex-direction: column;
+
+            &-text{
+                width: auto;
+                text-align: center;
+                margin-right: 0;
+
+                &__title{
+                    margin-bottom: 20px;
+                }
+
+                &__subtitle{
+                    max-width: 100%;
+                    font-size: 18px;
+                    margin-bottom: 10px;
+                }
+            }
+        }
+
+        .section-form__form-data{
+            margin-top: 10px;
+            justify-content: center;
+        }
+    }
+
+}
+
+//  === /section-form ===
+
+@media (max-width: 991.98px){
+
+// === header ===
+
+    @media (max-width: 815px) {
+
+        .header{
+            padding-top: 25px;
+        }
+
+        .nav{
+            display: none;
+        }
+        
+        .header__burger{
+            display: block;
+        }
+    }
+
+// === /header ===
+
+
+// === section-hero ===
+
+    @media (max-width: 957px) {
+        .section-hero{
+            padding-bottom: 45px;
+
+            &__title{
+                font-size: 45px;
+            }
+
+            &__img{
+                width: 469px;
+                height: 469px;
+            }
+
+            &__btn{
+                font-size: 16px;
+                padding: 14px 21px;
+            }
+        }
+    }
+
+    @media (max-width: 881px) {
+        .section-hero{
+
+            &__title{
+                font-size: 42px;
+                line-height: 60px;
+            }
+        }
+    }
+
+    @media (max-width: 844px) {
+        .section-hero{
+            padding-top: 37px;
+
+            &__save-block{
+                margin-bottom: 12px;
+                width: 348px;
+
+                .section-hero__save-text{
+                    font-size: 15px;
+                }
+
+
+            }
+
+            &__save{
+                font-size: 15px;
+            }
+
+            &__title{
+                font-size: 39px;
+                line-height: 59px;
+            }
+
+            &__img{
+                width: 385px;
+                height: 385px;
+            }
+
+            &__btn{
+                font-size: 15px;
+                padding: 12px 19px;
+            }
+        }
+
+        
+    }
+
+// === /section-hero ===
+
+
+// === section-why ===
+
+    .section-why{
+        padding-top: 35px;
+        padding-bottom: 43px;
+
+        &__img-block{
+            margin-right: 20px;
+        }
+
+        &__item-title{
+            font-size: 35px;
+        }
+
+        &__item-subtitle{
+        font-size: 15px;
+        }
+    }
+
+    @media (max-width: 905px) {
+        .section-why{
+            &__item-title{
+                font-size: 33px;
+                margin-bottom: 2px;
+                margin-top: -3px;
+            }
+        }
+    }
+
+    @media (max-width: 843px) {
+        .section-why{
+            &__item-title{
+                margin-top: -7px;
+            }
+        }
+    }
+
+// === /section-why ===
+
+
+// === section-trade ===
+
+.section-trade .section-trade__bottom {
+    padding-bottom: 50px;
+}
+    .section-trade{
+        padding-top: 35px;
+
+        &__text-block{
+            margin-bottom: 50px;
+        }
+
+        .section-trade__calc-bottom{
+            margin-bottom: 50px;
+            padding: 40px 0 48px 0px;
+            text-align: center;
+        }
+
+        
+    }
+
+    
+
+    // .section-trade__calc-bottom{
+        
+    // }
+
+    .section-trade .section-trade__bottom-item{
+        padding-top: 30px;
+        padding-bottom: 40px;
+    }
+
+    .section-trade .section-trade__bottom__title{
+        margin-bottom: 50px;
+    }
+
+    @media (max-width: 970px) {
+        
+        .section-trade__calc-top{
+            flex-wrap: wrap;
+            justify-content: space-evenly;
+            padding-bottom: 18px;
+        }
+
+        .section-trade__calc-top .calc-top__btn{
+            margin-top: 30px;
+        }
+
+        .section-trade__text-block .section-trade__title{
+            font-size: 38px;
+            margin-bottom: 50px;
+        }
+        
+
+    }
+
+    @media (max-width: 824px) {
+
+        .calc-top__input{
+            flex: 0 0 100%;
+        }
+
+        .section-trade__calc-top .calc-top__btn{
+            padding: 13px 28px;
+        }
+
+        .section-trade__calc-top .calc-top__select{
+            margin-top: 30px;
+        }
+
+    }
+
+    @media (max-width: 784px) {
+
+        .section-trade .section-trade__bottom-item:last-child{
+            margin-right: 0;
+        }
+    }
+
+// === /section-trade ===
+
+// === section-form ===
+
+    .section-form{
+        padding-top: 60px;
+        padding-bottom: 60px;
+
+        &__form{
+            padding: 40px 43px 40px 43px;
+        }
+    }
+
+// === /section-form ===
+
+
+// === footer ===
+
+    .footer{
+        padding: 40px 0;
+    }
+
+// === /footer ===
+}
+
+@media (max-width: 767.98px){
+
+    // === sction-hero ===
+
+        .section-hero{
+            padding-bottom: 0;
+
+            &__row{
+                flex-direction: column;
+            }
+
+            &__save-block{
+                margin: 0 auto 12px auto;
+            }
+
+            &__title{
+                text-align: center;
+                font-size: 37px;
+                line-height: 49px;
+            }
+
+            &__subtitle{
+                margin: 0px auto 32px auto;
+                max-width: 100%;
+                text-align: center;
+            }
+
+            &__btn{
+                font-size: 16px;
+                padding: 14px 21px;
+                margin: 0 auto;
+                display: block;
+                max-width: 140px;
+            }
+        }
+
+    // === /sction-hero ===
+
+
+    // === section-why ===
+
+        .section-why{
+            padding-bottom: 0;
+
+            &__row{
+                flex-wrap: wrap;
+                justify-content: space-evenly;
+            }
+
+            &__item{
+                width: 294px;
+                margin-bottom: 40px;
+                margin-right: 10px;
+
+                &:last-child{
+                    // margin-bottom: 0;
+                    margin-right: 0;
+
+                    
+                }
+            }
+        }
+
+        @media (max-width: 627px) {
+            .section-why__item:last-child{
+                margin-right: 17px;
+                margin-bottom: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .section-why__item{
+                margin-right: 0;
+            }
+
+            .section-why__item:last-child{
+                margin-right: 0;
+            }
+        }
+
+    // === /section-why ===
+
+
+    // === section-trade ===
+
+        .section-trade{
+            padding-top: 30px;
+
+            &__text-block{
+                margin-bottom: 35px;
+            }
+
+            .section-trade__title{
+                font-size: 36px;
+                margin-bottom: 30px;
+            }
+
+            .section-trade__calc-bottom{
+                padding: 25px 0 30px 0px;
+                margin-bottom: 45px;
+            }
+
+            .section-trade__bottom{
+                padding-bottom: 30px;
+
+                &-item{
+                    padding-top: 20px;
+                    padding-bottom: 27px;
+                    margin-right: 0;
+                }
+            }
+        }
+
+    // === /section-trade ===
+
+
+    // === section-form ===
+
+        .section-form{
+            padding-top: 50px;
+            padding-bottom: 50px; 
+            
+            &__form{
+                padding: 30px 37px 30px 37px;
+            }
+
+            // .section-from__form-text__title{
+
+            // }
+
+            .section-form__form-text__subtitle{
+                font-size: 17px;
+
+            }
+
+            @media (max-width: 637px) {
+                .section-form{
+
+                    &__form-data{
+                        flex-wrap: wrap;
+
+                        &__btn{
+                            margin-top: 20px;
+                            padding: 12px 30px;
+                        }
+                    }
+                }
+
+            }
+        }
+
+    // === /section-form ===
+
+
+    // === footer ===
+
+        .footer{   
+            padding: 25px 0;
+        }
+
+        @media (max-width: 637px) {
+            .footer{
+                &__text{
+                    font-size: 15px;
+                }
+            }
+        }
+
+    // === /footer ===
+}
+
+
+@media (max-width: 575.98px){
+
+    // === section-hero ===
+
+        //* section-hero__save-block
+
+        @media (max-width: 356px) {
+            .section-hero{
+                &__save-block{
+                    flex-direction: column;
+                    background-color: transparent;
+
+                    .section-hero__save{
+                        margin-right: 0;
+                        margin-bottom: 5px;
+                    }
+
+                    .section-hero__save-text{
+                        margin: 8px 0 4px 0;
+                    }
+                }
+            }
+        }
+
+        //* /section-hero__save-block
+
+        //* section-hero__title
+
+        @media (max-width: 342px) {
+            .section-hero{
+                &__title{
+                    font-size: 33px;
+                    line-height: 40px;
+                }
+            }
+        }
+
+        @media (max-width: 307px) {
+            .section-hero{
+                &__title{
+                    font-size: 30px;
+                    line-height: 38px
+                }
+            }
+        }
+
+        @media (max-width: 282px) {
+            .section-hero{
+                &__title{
+                    font-size: 27px;
+                    line-height: 34px;
+                }
+            }
+        }
+
+        //* /section-hero__title
+
+
+        //* section-hero__subtitle
+
+        .section-hero{
+            &__subtitle{
+                margin: 0px auto 25px auto;
+            }
+        }
+
+        @media (max-width: 342px) {
+            .section-hero{
+                &__subtitle{
+                    font-size: 15px;
+                }
+            }
+        }
+
+        //* /section-hero__subtitle
+
+        //* section-hero__btn
+
+        @media (max-width: 360px) {
+            .section-hero__btn{
+                font-size: 15px;
+                text-align: center;
+                padding: 11px 15px;
+            }
+        }
+ 
+        //* /section-hero__btn
+
+        //* section-hero__img
+
+        @media (max-width: 401px) {
+            .section-hero{
+
+                &__img{
+                    width: 350px;
+                    height: 350px;
+                }
+            }
+        }
+
+        @media (max-width: 361px) {
+            .section-hero{
+
+                &__img{
+                    width: 320px;
+                    height: 320px;
+                }
+            }
+        }
+
+        @media (max-width: 322px) {
+            .section-hero{
+
+                &__img{
+                    width: 270px;
+                    height: 270px;
+                }
+            }
+        }
+
+        //* /section-hero__img
+
+    // === .section-hero ===
+
+
+    // === section-trade ===
+
+    @media (max-width: 500px) {
+        .section-trade__calc-top .calc-top__input{
+            flex: 0 0 303px;
+        }
+    }
+
+    @media (max-width: 372px) {
+        .section-trade__calc-top .calc-top__input{
+            flex: 0 0 203px;
+            font-size: 19px;
+        }
+
+        .section-trade__calc-top .calc-top__select{
+            font-size: 19px;
+        }
+    }
+
+    @media (max-width: 404px) {
+        .section-trade .section-trade__title{
+            font-size: 34px;
+            margin-bottom: 24px;     
+            line-height: 45px;   
+        }
+    }
+
+    @media (max-width: 384px) {
+        .section-trade__text-block{
+            margin-bottom: 30px;
+        }
+
+        .section-trade .section-trade__title{
+            font-size: 32px;
+            margin-bottom: 21px;
+            line-height: 40px;   
+        }
+
+        .section-trade__text-block .section-trade__subtitle{
+            font-size: 17px;
+            line-height: 24px;
+        }
+    }
+
+    .section-trade .section-trade__calc-bottom__esimated {
+        font-size: 15px; 
+    }
+
+    .section-trade .section-trade__calc-bottom__esimated-output{
+        font-size: 30px;
+    }
+
+    @media (max-width: 440px) {
+        .section-trade .section-trade__calc-bottom__esimated-output{
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .section-trade .section-trade__calc-bottom__comment{
+            font-size: 15px;
+        }
+    }
+
+    @media (max-width: 373px) {
+        .section-trade .section-trade__calc-bottom__esimated{
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+
+        .section-trade .section-trade__calc-bottom__esimated-output{
+            font-size: 25px;
+        }
+    }
+
+    .section-trade .section-trade__calc-bottom{
+        margin-bottom: 35px;
+    }
+
+    .section-trade .section-trade__bottom__title{
+        font-size: 35px;
+        margin-bottom: 42px;
+    }
+
+    @media (max-width: 490px) {
+        .section-trade .section-trade__bottom__title{
+            font-size: 30px;
+            margin-bottom: 36px;
+        }
+    }
+
+    @media (max-width: 382px) {
+        .section-trade .section-trade__bottom__title{
+            font-size: 26px;
+            margin-bottom: 28px;
+        }
+    }
+
+    @media (max-width: 334px) {
+        .section-trade .section-trade__bottom__title{
+            font-size: 25px;
+            margin-bottom: 22px;;
+        }
+    }
+
+    .section-trade .section-trade__bottom-item{
+        max-width: 370px;
+        flex: 0 0 100%;
+    }
+
+    @media (max-width: 360px) {
+        .section-trade .section-trade__bottom-item__img{
+            width: 75px;
+            height: 75px;
+            margin-bottom: 28px;
+        }
+
+        .section-trade .section-trade__bottom-item__title{
+            font-size: 30px;
+            margin-bottom: 14px;
+        }
+
+        .section-trade .section-trade__bottom-item__subtitle{
+            padding: 0 5px;
+
+        }
+    }
+
+    @media (max-width: 376px) {
+        .section-trade .section-trade__bottom-item__btn{
+            padding: 18px 18px;
+        }
+
+        .section-trade .section-trade__bottom-item__btn .item__btn-icon {
+            display: none;
+        }
+
+        .section-trade .section-trade__bottom-item__btn .item__btn-text{
+            margin-right: 0;
+        }
+    }
+
+    .section-trade__bottom{
+        padding-bottom: 5px;
+    }
+
+    // === /section-trade ===
+
+
+    // === section-form ===
+
+        .section-form{
+            padding-top: 40px;
+            padding-bottom: 40px;
+        }
+
+        @media (max-width: 379px) {
+            .section-form .section-from__form-text__title{
+                font-size: 29px;
+                margin-bottom: 14px;
+            }
+
+            .section-form .section-form__form-text__subtitle{
+                margin-bottom: 0px;
+                font-size: 16px;
+                line-height: 24px;
+            }
+        }
+
+        @media (max-width: 290px) {
+            .section-form .section-from__form-text__title{
+                font-size: 24px;
+            }
+        }
+
+        .section-form__form-data .data-input{
+            margin-right: 0;
+        }
+
+        @media (max-width: 462px) {
+            .section-form__form-data .data-input{
+                font-size: 15px;
+                flex: 0 0 100%;
+                margin-top: 15px; 
+            }
+        }
+
+        @media (max-width: 350px) {
+            .section-form {
+                padding-top: 32px;
+                padding-bottom: 32px;
+            }
+
+            .section-form__form-data .data-input{
+                text-align: center;
+            }
+
+            .section-form .section-form__form-data__btn{
+                font-size: 17px;
+                padding: 10px 24px;
+            }
+        }
+ 
+
+    // === /section-form ===
+
+
+    // === footer ===
+        
+        @media (max-width: 550px) {
+            .footer{
+                padding: 20px 0;
+
+                &__row{
+                    flex-direction: column;
+                }
+
+                &__text{
+                    margin-bottom: 15px;
+                }
+            }
+        }
+
+        @media (max-width: 400px) {
+            .footer{
+
+                &__text{
+                    font-size: 14px;
+                }
+            }
+
+            .footer .fab {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 280px) {
+            .footer__icons{
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                 width: 218px;
+            }
+
+            .footer__link{
+                margin: 0;
+            }
+        }
+
+        
+    // === /footer ===
+}
+
+
+// === /media ===
+
+.section-hero__save-block_new{
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: center;
+    margin: 0 auto;
+    width: 270px;
+}
+
+.section-hero__save_new{
+    padding: 4px 16px;
+    background-color: #fff;
+    color: #0D0D2B;
+    font-size: 16px;
+    font-weight: 500;
+    border-radius: 32px;
+    margin-bottom: 5px;
+    width: 103px;
+    margin: 0 auto;
+}
+
+.section-hero__save-text_new{
+    margin: 8px 0 4px 0;
+    text-align: center;
+}
