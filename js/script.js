@@ -11,6 +11,7 @@ const saveBlock = document.querySelector('.section-hero__save-block');
 const parentBlock = document.querySelector('.section-hero__info');
 
 // Menu-fade
+const logo = document.querySelector('.logo');
 const headerWrapper = document.querySelector('.header__wrapper');
 
 // Revealing Elements on Scroll
@@ -34,7 +35,6 @@ function handleHover(op) {
     return function(e) {
         if (e.target.classList.contains('navigation__link')) {
             const siblings = document.querySelectorAll('.navigation__link');
-            const logo = document.querySelector('.logo');
     
             siblings.forEach(item => {
                 if (item != e.target) {
@@ -92,6 +92,7 @@ navLinks.forEach(link => {
         body.classList.remove('_lock');
         nav.classList.remove('visible');
         burger.classList.remove('header__burger-icon_active');
+        logo.style.opacity = 1;
     });
 })
 
