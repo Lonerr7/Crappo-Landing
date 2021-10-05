@@ -1,7 +1,10 @@
 'use strict';
 
 // Burger-menu
-const burgerIcon = document.querySelector('.header__burger-icon');
+const burger = document.querySelector('.header__burger');
+const nav = document.querySelector('.nav');
+const body = document.querySelector('body');
+const navLinks = document.querySelectorAll('.navigation__link');
 
 // Удаление 75% save блока
 const saveBlock = document.querySelector('.section-hero__save-block');
@@ -12,14 +15,6 @@ const headerWrapper = document.querySelector('.header__wrapper');
 
 // Revealing Elements on Scroll
 const allSections = document.querySelectorAll('.section');
-
-//* Menu-burger
-
-burgerIcon.addEventListener('click', (e) => {
-    e.preventDefault();
-
-    burgerIcon.classList.toggle('header__burger-icon_active');
-});
 
 //* Удаление элемента в hero секции и его замена
 
@@ -55,24 +50,53 @@ headerWrapper.addEventListener('mouseover', handleHover(0.5));
 
 headerWrapper.addEventListener('mouseout', handleHover(1));
 
-//* Revealing Elements on Scroll
+// //* Revealing Elements on Scroll
 
-function showSection(entries, observer) {
-    const [entry] = entries;
-    console.log(entry);
+// function showSection(entries, observer) {
+//     const [entry] = entries;
+//     console.log(entry);
 
-    if (entry.isIntersecting) {
-        entry.target.classList.remove('section-hidden');
-        observer.unobserve(entry.target);
-    }
-}
+//     if (entry.isIntersecting) {
+//         entry.target.classList.remove('section-hidden');
+//         observer.unobserve(entry.target);
+//     }
+// }
 
-const observer = new IntersectionObserver(showSection, {
-    root: null,
-    threshold: 0.1,
+// const observer = new IntersectionObserver(showSection, {
+//     root: null,
+//     threshold: 0.1,
+// });
+
+// allSections.forEach(section => {
+//     observer.observe(section);
+//     section.classList.add('section-hidden')
+// });
+
+//* Menu-burger
+
+burger.addEventListener('click', (e) => {
+    e.preventDefault();
+
+    const clicked = e.target.closest('.header__burger');
+    if(!clicked) return;
+
+    clicked.classList.toggle('header__burger-icon_active');
+
+    nav.classList.toggle('visible');
+    body.classList.toggle('_lock');
 });
 
-allSections.forEach(section => {
-    observer.observe(section);
-    section.classList.add('section-hidden')
+navLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        // e.preventDefault();
+        body.classList.remove('_lock');
+        nav.classList.remove('visible');
+        burger.classList.remove('header__burger-icon_active');
+    });
+})
+
+//* Smooth scrolling
+
+const scrollFormNav = new SmoothScroll('a[href*="#"]', {
+    speed: 800
 });
