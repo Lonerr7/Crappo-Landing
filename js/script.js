@@ -33,15 +33,12 @@ $(window).resize(function() {
 
 function handleHover(op) {
     return function(e) {
-        if (e.target.classList.contains('navigation__link')) {
-            const siblings = document.querySelectorAll('.navigation__link');
-    
-            siblings.forEach(item => {
+        if (e.target.classList.contains('navigation__link') || e.target.classList.contains('logo')) {
+            navLinks.forEach(item => {
                 if (item != e.target) {
                     item.style.opacity = op;
                 }
             });
-            logo.style.opacity = op;
         }
     }   
 }
@@ -93,6 +90,7 @@ navLinks.forEach(link => {
         nav.classList.remove('visible');
         burger.classList.remove('header__burger-icon_active');
         logo.style.opacity = 1;
+        navLinks.forEach(link => link.style.opacity = 1);
     });
 })
 
